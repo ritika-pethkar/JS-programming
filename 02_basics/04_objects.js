@@ -60,3 +60,30 @@ console.log(Object.entries(instagramUser)); // [key : val], [Key1 : val1]
 console.log(instagramUser.hasOwnProperty('isLoggedIn'));
 */
 
+// ------------- Object De-Structuring ---------------
+
+const course = {
+    courseName : "Javascript",
+    price : "999",
+    courseInstructor : "abc"
+}
+
+// course.courseInstructor
+const {courseInstructor : instructor} = course
+// console.log(courseInstructor);
+console.log(instructor);
+
+/* --------------- API ------------------
+Json format
+{
+    "name": "hitesh",
+    "coursename": "js in hindi",
+    "price": "free"
+}
+*/
+[
+    {},
+    {},
+    {}
+]
+
