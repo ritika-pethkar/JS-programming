@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Part - 3</title>
+</head>
+<body style="background-color: #212121; color:azure">
+    
+</body>
+<script>
+    function createCustomDiv(title, color, text){
+        const myDiv = document.createElement('div')
+        // console.log(myDiv);
+        myDiv.className = "main"
+        myDiv.id = Math.round(Math.random()*10 + 1)
+        myDiv.setAttribute("title", title)
+        myDiv.style.backgroundColor = color
+        myDiv.style.padding = "12px"
+        const addText = document.createTextNode(text)
+        myDiv.appendChild(addText)
+        document.body.appendChild(myDiv)
+    }
+    // myDiv.innerText = "This is My first Div"
+    createCustomDiv("Div", "green", "My First Div Container")
+
+</script>
+
+</html>
