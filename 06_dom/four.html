@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM| 4</title>
+</head>
+<body style="background-color: #212121; color:azure">
+   <ul class="languages">
+        <li>JavaScript</li>
+   </ul> 
+</body>
+<script>
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}` // in this the function traverses the whole tree
+        document.querySelector('.languages').
+        appendChild(li)
+    }
+    addLanguage("Python")
+    addLanguage("Java")
+
+    function addOptiLang(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.languages').appendChild(li)
+    }
+    addOptiLang("Golang")
+
+    // Edit
+    const secondLang = document.querySelector("li:nth-child(2)")
+    // secondLang.innerHTML("C++")
+    const newLi = document.createElement('li')
+    newLi.textContent = "C++"
+    secondLang.replaceWith(newLi)
+
+    // Edit
+    const firstLang = document.querySelector("li:first-child")
+    firstLang.outerHTML = '<li>TypeScript</li>'
+
+    // remove
+    const lastLang = document.querySelector("li:last-child")
+    lastLang.remove()
+</script>
+</html>
