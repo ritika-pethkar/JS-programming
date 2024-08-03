@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange">Orange</button>
+    <button id="purple">Purple</button>   
+</body>
+<script>
+    // function init() {
+    //     let name = "Mozilla";
+    //     function displayName() {
+    //         console.log(name); 
+    //     }
+    //     displayName();
+    // }
+    // init();
+
+// ----------------------- LEXICAL SCOPING ----------------------
+
+/*
+1. Siblings can't share any variable -> innerTwo cannot access text
+2. Parent cannot access it's children's variable -> outer cannot access text
+*/
+    /*function outer(){ 
+        let username = "Ritika"
+        // console.log("Outer ",text);
+        
+        function innerOne() {
+            let text = "hi"
+            console.log("Inner One : ",username);    
+        }
+        function innerTwo() {
+            console.log("Inner Two : ",username); 
+            // console.log("Inner Two : ",text); // can't be accessed       
+        }
+        innerOne()
+        innerTwo()
+    }
+    outer()
+    console.log("Outer: ",username);
+    */
+
+//-------------------------- CLOSURE -----------------------------
+    /*
+    function makeFunc() {
+        const name = "Mozilla";
+        function displayName() {
+            console.log(name);
+        }
+        return displayName; // It is returning entire function's lexical scope
+    }
+
+    const myFunc = makeFunc();
+    myFunc();
+    */   
+</script>
+
+<script>
+    /*document.getElementById('orange').onclick = function()
+    {
+        document.body.style.backgroundColor = 'orange'
+    }
+
+    document.getElementById('purple').onclick = function()
+    {
+        document.body.style.backgroundColor = 'purple'
+    }*/
+
+    function clickHandler(color){
+        // document.body.style.backgroundColor = `${color}`
+        return function(){
+            document.body.style.backgroundColor = `${color}`
+        }
+    }
+    document.getElementById('orange').onclick = clickHandler("orange")
+    document.getElementById('purple').onclick = clickHandler("purple")
+</script>
+</html>
